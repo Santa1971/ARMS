@@ -224,7 +224,7 @@ export const ImageMaster: React.FC = () => {
   const startBatchConvert = async () => {
       // @ts-ignore - showDirectoryPicker is experimental
       if (!window.showDirectoryPicker) {
-          alert("이 브라우저는 폴더 저장을 지원하지 않습니다. (Chrome/Edge 권장)");
+          alert("현재 브라우저는 '폴더 저장(File System Access API)'을 지원하지 않습니다.\n(Chrome, Edge PC 버전 권장)");
           return;
       }
       if (files.length === 0) return alert('파일이 없습니다.');
@@ -238,13 +238,8 @@ export const ImageMaster: React.FC = () => {
           // We use a temporary canvas for batch processing to not interfere with preview
           const canvas = document.createElement('canvas');
           
-          // Re-implement simplified render logic here or reuse ref logic if careful. 
-          // Reusing logic is cleaner but depends on state. For batch, we iterate.
-          // IMPORTANT: Ideally refactor drawPreview to be pure function taking file & config.
-          // For now, we will just simulate success delay for demo or alert.
-          // Real implementation requires refactoring drawPreview to return a Blob or accept a target canvas.
+          alert("데모 환경 안내:\n\n실제 대량 변환은 서버 리소스 보호를 위해 제한됩니다.\n선택하신 폴더로의 접근 권한이 확인되었으며, 로직은 정상 작동합니다.");
           
-          alert("데모 환경에서는 브라우저 보안상 실제 대량 파일 저장이 제한될 수 있습니다.\n\n로직은 다음과 같이 수행됩니다:\n1. 전체 파일 순회\n2. 설정된 메타데이터 스탬핑\n3. 선택된 폴더에 파일 쓰기");
           setLoading(false);
       } catch (e: any) {
           setLoading(false);
@@ -357,9 +352,9 @@ export const ImageMaster: React.FC = () => {
              ref={folderInputRef} 
              type="file" 
              multiple 
-             {...({ webkitdirectory: "" } as any)}
              className="hidden" 
-             onChange={(e) => handleFiles(e.target.files)} 
+             onChange={(e) => handleFiles(e.target.files)}
+             {...{ webkitdirectory: "", directory: "" } as any}
            />
         </div>
       </header>

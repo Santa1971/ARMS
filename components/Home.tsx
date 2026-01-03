@@ -23,7 +23,7 @@ export const Home: React.FC = () => {
             {/* Desktop Menu */}
             <div className="hidden md:flex gap-10 text-sm font-bold text-slate-400">
               <a href="#about" className="hover:text-blue-400 transition-colors">솔루션 소개</a>
-              <a href="#simulation" className="hover:text-blue-400 transition-colors">시뮬레이션</a>
+              <a href="#simulation" className="hover:text-blue-400 transition-colors">업무 시나리오</a>
               <a href="#preservation" className="hover:text-blue-400 transition-colors">보존 매체 변환</a>
               <a href="#impact" className="hover:text-blue-400 transition-colors">도입효과</a>
             </div>
@@ -50,7 +50,7 @@ export const Home: React.FC = () => {
           {isMobileMenuOpen && (
               <div className="md:hidden absolute top-16 w-full bg-slate-900/95 backdrop-blur-xl border-b border-slate-800 p-6 flex flex-col gap-6 text-center animate-fade-in-down shadow-2xl z-40">
                 <a href="#about" className="text-slate-300 font-bold text-lg py-2" onClick={() => setIsMobileMenuOpen(false)}>솔루션 소개</a>
-                <a href="#simulation" className="text-slate-300 font-bold text-lg py-2" onClick={() => setIsMobileMenuOpen(false)}>시뮬레이션</a>
+                <a href="#simulation" className="text-slate-300 font-bold text-lg py-2" onClick={() => setIsMobileMenuOpen(false)}>업무 시나리오</a>
                 <a href="#preservation" className="text-slate-300 font-bold text-lg py-2" onClick={() => setIsMobileMenuOpen(false)}>보존 매체 변환</a>
                 <a href="#impact" className="text-slate-300 font-bold text-lg py-2" onClick={() => setIsMobileMenuOpen(false)}>도입효과</a>
               </div>
@@ -72,23 +72,23 @@ export const Home: React.FC = () => {
                         <span className="text-blue-400 text-[10px] md:text-xs font-black tracking-widest uppercase">Intelligent Archives Solution</span>
                     </div>
                     <h1 className="text-4xl md:text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight break-keep">
-                        OCR로 읽고,<br/>
-                        데이터로 기록을<br/>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">혁신하다.</span>
+                        비전자기록물의<br/>
+                        데이터 자산화,<br/>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">지능형 관리의 시작</span>
                     </h1>
                     <p className="text-base md:text-xl text-slate-400 leading-relaxed max-w-lg font-light break-keep">
-                        "업무 시간 90% 단축, 검색 정확도 99% 달성"<br className="hidden md:block"/>
-                        잠들어 있던 아날로그 기록의 가치를 깨워 <br className="hidden md:block"/>
-                        기관의 핵심 데이터 자산으로 탈바꿈시킵니다.
+                        기록관리 프로세스 혁신을 통한 업무 효율성 극대화<br className="hidden md:block"/>
+                        아날로그 기록의 디지털 전환(DX)부터 데이터 기반 의사결정 지원까지<br className="hidden md:block"/>
+                        ARMS가 차세대 기록관리 환경을 제시합니다.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 pt-2">
                         <a href="#simulation" className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black text-lg shadow-2xl shadow-blue-600/30 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
                             <Rocket className="w-5 h-5" />
-                            시뮬레이션 시작
+                            업무 시나리오 체험
                         </a>
                         <a href="https://image-ocr-plus.vercel.app/" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white rounded-2xl font-black text-lg transition-all flex items-center justify-center gap-3 group">
                             <History className="w-5 h-5 text-slate-400 group-hover:text-white transition-colors" />
-                            OCR 데모 체험
+                            OCR 데모 실행
                         </a>
                     </div>
                 </div>
@@ -120,23 +120,23 @@ export const Home: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start lg:items-center">
                     <div className="lg:col-span-5 space-y-6 md:space-y-8">
                         <h2 className="text-3xl md:text-4xl font-black leading-tight text-white break-keep">
-                            30년의 기록관리 현장 노하우,<br/>
-                            <span className="text-blue-500">AI 기술로 완성되다</span>
+                            기록관리 현장의 전문성,<br/>
+                            <span className="text-blue-500">AI 기술로 완성하다</span>
                         </h2>
                         <p className="text-slate-400 leading-relaxed text-justify text-base md:text-lg font-light break-keep">
                             공공기관의 기록관리는 단순 보존을 넘어 법적 준거성(Compliance)과 역사적 가치를 동시에 확보해야 합니다. 
                             <strong className="text-slate-200"> ARMS</strong>는 단순 OCR을 넘어, 
                             <strong className="text-slate-200"> 공공기록물법</strong>과 <strong className="text-slate-200">기록관리기준표(BRM)</strong>를 
-                            딥러닝한 엔진을 통해 실무자의 판단을 보조하는 지능형 의사결정 지원 시스템(DSS)입니다.
+                            학습한 엔진을 통해 기록연구사의 업무를 보조하는 지능형 의사결정 지원 시스템(DSS)입니다.
                         </p>
                         <div className="grid grid-cols-2 gap-4 pt-4">
                             <div className="p-4 md:p-6 bg-slate-900 rounded-2xl border border-slate-800 hover:border-blue-500/30 transition-colors">
-                                <div className="text-blue-500 font-black text-2xl md:text-3xl mb-1">30+</div>
-                                <div className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Years Expertise</div>
+                                <div className="text-blue-500 font-black text-2xl md:text-3xl mb-1">Standard</div>
+                                <div className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">ISO 15489</div>
                             </div>
                             <div className="p-4 md:p-6 bg-slate-900 rounded-2xl border border-slate-800 hover:border-emerald-500/30 transition-colors">
                                 <div className="text-emerald-500 font-black text-2xl md:text-3xl mb-1">Zero</div>
-                                <div className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Security Breach</div>
+                                <div className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Security Risk</div>
                             </div>
                         </div>
                     </div>
@@ -185,32 +185,30 @@ export const Home: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold tracking-widest uppercase">
-                    New Feature
+                    Archive Integrity
                  </div>
                  <h2 className="text-3xl md:text-4xl font-black text-white leading-tight break-keep">
-                    법적 효력을 갖춘<br/>
-                    <span className="text-emerald-500">진본성 확보(Integrity)</span> 및 <br/>
-                    보존 매체 변환 솔루션
+                    기록물의 진본성(Authenticity) 및<br/>
+                    <span className="text-emerald-500">무결성(Integrity) 보장</span> 솔루션
                  </h2>
                  <p className="text-slate-400 text-lg leading-relaxed break-keep">
-                    부서장님, 단순히 스캔만 한다고 끝이 아닙니다. 
-                    <strong className="text-white">마이크로필름</strong> 등 영구 보존 매체로 변환하기 위해서는 
-                    문서의 맥락 정보(파일명, 생산일자 등)가 이미지와 함께 <strong className="text-white">한 몸처럼(Watermarking)</strong> 기록되어야 합니다.
-                    또한, 원본과 변환본이 동일하다는 기술적 증명(Hash값 검증)이 필수적입니다.
+                    단순한 이미지 스캔을 넘어, 공공기록물 관리에 관한 법률 시행령에 부합하는 
+                    <strong className="text-white"> 영구 보존 매체(마이크로필름 등) 수록용 전처리 기술</strong>을 제공합니다.
+                    생산정보 메타데이터의 시각적 각인(Watermarking)과 해시값 검증을 통해 기록물의 법적 증거 능력을 확보합니다.
                  </p>
                  <ul className="space-y-4 pt-4">
                     <li className="flex items-start gap-3">
                        <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
                        <div>
                           <div className="font-bold text-white">메타데이터 자동 스탬핑</div>
-                          <div className="text-sm text-slate-400">파일명, 날짜, 쪽수 정보를 이미지 여백에 자동으로 기입하여 마이크로필름 촬영 시 문서 이력 보존</div>
+                          <div className="text-sm text-slate-400">문서 고유번호, 생산일자, 면수(Page) 정보를 이미지 여백에 표준 규격으로 자동 기입</div>
                        </div>
                     </li>
                     <li className="flex items-start gap-3">
                        <ShieldCheck className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
                        <div>
-                          <div className="font-bold text-white">무결성 검증 (Anti-Tampering)</div>
-                          <div className="text-sm text-slate-400">국정원 검증필 암호화 모듈(SHA-256)을 통해 원본 대조 및 위변조 여부 즉시 판별</div>
+                          <div className="font-bold text-white">위변조 검증 (Anti-Tampering)</div>
+                          <div className="text-sm text-slate-400">SHA-256 알고리즘 기반의 해시값 대조를 통해 원본 데이터의 무결성 즉시 판별</div>
                        </div>
                     </li>
                  </ul>
@@ -220,7 +218,7 @@ export const Home: React.FC = () => {
                        이미지 마스터(Image Master) 실행
                     </Link>
                     <p className="mt-3 text-xs text-slate-500 font-medium">
-                       * 별도의 설치 없이 웹 브라우저에서 즉시 대량의 이미지 전처리 및 검증이 가능합니다.
+                       * 별도의 설치 없이 웹 브라우저에서 보존 포맷 변환 및 검증이 가능합니다.
                     </p>
                  </div>
               </div>
@@ -231,7 +229,7 @@ export const Home: React.FC = () => {
                        <div className="flex items-center gap-3">
                           <CharacterSprite emotion="success" size="sm" className="border-emerald-500/50" />
                           <div>
-                             <div className="text-sm font-bold text-white">전처리 시뮬레이션</div>
+                             <div className="text-sm font-bold text-white">변환 프로세스 모니터링</div>
                              <div className="text-xs text-slate-500">Processing...</div>
                           </div>
                        </div>
@@ -243,7 +241,7 @@ export const Home: React.FC = () => {
                           <div className="h-full bg-emerald-500 w-[75%]"></div>
                        </div>
                        <div className="flex justify-between text-xs text-slate-400 font-mono">
-                          <span>Processing: IMG_2024_0042.jpg</span>
+                          <span>Processing: REC_2024_0042.jpg</span>
                           <span>75%</span>
                        </div>
                        <div className="grid grid-cols-2 gap-3 mt-4">
@@ -268,7 +266,7 @@ export const Home: React.FC = () => {
              <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
                 <div className="text-center mb-12 md:mb-20 space-y-4">
                      <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight break-keep">
-                        현장 담당자가 체감하는 <span className="text-blue-500">혁신적 변화</span>
+                        기록관리 프로세스 혁신 <span className="text-blue-500">성과 지표</span>
                     </h2>
                     <p className="text-slate-500 text-sm md:text-base">실제 도입 기관(A시청, B공사)의 성과 측정 결과입니다.</p>
                 </div>
