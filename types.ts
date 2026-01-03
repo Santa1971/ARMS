@@ -1,8 +1,18 @@
+export interface RealWorldCase {
+  title: string;       // 문서 제목
+  unitTask: string;    // 단위과제
+  retention: string;   // 보존기간
+  disclosure: string;  // 공개여부
+  summary: string;     // 내용요약
+  relation: string;    // 관련기록
+}
+
 export interface CaseStudy {
   name: string;
   scenario: string;
   aiSolution: string;
   expertLogic: string;
+  realWorldExample: RealWorldCase; // Changed from string to structured object
   tags: string[];
 }
 

@@ -7,6 +7,17 @@ import { Zap, Shield, Search, Menu, X, Rocket, CheckCircle2, History, FileImage,
 export const Home: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
+  // Helper function to handle smooth scrolling to sections
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const yOffset = -80; // Offset for fixed header
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      setIsMobileMenuOpen(false); // Close mobile menu if open
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-blue-500/30">
         
@@ -22,10 +33,10 @@ export const Home: React.FC = () => {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex gap-10 text-sm font-bold text-slate-400">
-              <a href="#about" className="hover:text-blue-400 transition-colors">솔루션 소개</a>
-              <a href="#simulation" className="hover:text-blue-400 transition-colors">업무 시나리오</a>
-              <a href="#preservation" className="hover:text-blue-400 transition-colors">보존 매체 변환</a>
-              <a href="#impact" className="hover:text-blue-400 transition-colors">도입효과</a>
+              <button onClick={() => scrollToSection('about')} className="hover:text-blue-400 transition-colors">솔루션 소개</button>
+              <button onClick={() => scrollToSection('simulation')} className="hover:text-blue-400 transition-colors">업무 시나리오</button>
+              <button onClick={() => scrollToSection('preservation')} className="hover:text-blue-400 transition-colors">보존 매체 변환</button>
+              <button onClick={() => scrollToSection('impact')} className="hover:text-blue-400 transition-colors">도입효과</button>
             </div>
 
             <div className="hidden lg:flex items-center gap-4">
@@ -49,10 +60,10 @@ export const Home: React.FC = () => {
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
               <div className="md:hidden absolute top-16 w-full bg-slate-900/95 backdrop-blur-xl border-b border-slate-800 p-6 flex flex-col gap-6 text-center animate-fade-in-down shadow-2xl z-40">
-                <a href="#about" className="text-slate-300 font-bold text-lg py-2" onClick={() => setIsMobileMenuOpen(false)}>솔루션 소개</a>
-                <a href="#simulation" className="text-slate-300 font-bold text-lg py-2" onClick={() => setIsMobileMenuOpen(false)}>업무 시나리오</a>
-                <a href="#preservation" className="text-slate-300 font-bold text-lg py-2" onClick={() => setIsMobileMenuOpen(false)}>보존 매체 변환</a>
-                <a href="#impact" className="text-slate-300 font-bold text-lg py-2" onClick={() => setIsMobileMenuOpen(false)}>도입효과</a>
+                <button className="text-slate-300 font-bold text-lg py-2" onClick={() => scrollToSection('about')}>솔루션 소개</button>
+                <button className="text-slate-300 font-bold text-lg py-2" onClick={() => scrollToSection('simulation')}>업무 시나리오</button>
+                <button className="text-slate-300 font-bold text-lg py-2" onClick={() => scrollToSection('preservation')}>보존 매체 변환</button>
+                <button className="text-slate-300 font-bold text-lg py-2" onClick={() => scrollToSection('impact')}>도입효과</button>
               </div>
           )}
         </nav>
@@ -82,10 +93,13 @@ export const Home: React.FC = () => {
                         ARMS가 차세대 기록관리 환경을 제시합니다.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                        <a href="#simulation" className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black text-lg shadow-2xl shadow-blue-600/30 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                        <button 
+                            onClick={() => scrollToSection('simulation')}
+                            className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black text-lg shadow-2xl shadow-blue-600/30 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3"
+                        >
                             <Rocket className="w-5 h-5" />
                             업무 시나리오 체험
-                        </a>
+                        </button>
                         <a href="https://image-ocr-plus.vercel.app/" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white rounded-2xl font-black text-lg transition-all flex items-center justify-center gap-3 group">
                             <History className="w-5 h-5 text-slate-400 group-hover:text-white transition-colors" />
                             OCR 데모 실행
@@ -132,11 +146,13 @@ export const Home: React.FC = () => {
                         <div className="grid grid-cols-2 gap-4 pt-4">
                             <div className="p-4 md:p-6 bg-slate-900 rounded-2xl border border-slate-800 hover:border-blue-500/30 transition-colors">
                                 <div className="text-blue-500 font-black text-2xl md:text-3xl mb-1">Standard</div>
-                                <div className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">ISO 15489</div>
+                                <div className="text-[10px] text-slate-500 uppercase font-bold tracking-widest mb-1">기록물관리법 준수</div>
+                                <div className="text-xs text-slate-400 break-keep leading-tight">법적 기준(ISO 15489, 공공기록물법) 완벽 대응</div>
                             </div>
                             <div className="p-4 md:p-6 bg-slate-900 rounded-2xl border border-slate-800 hover:border-emerald-500/30 transition-colors">
                                 <div className="text-emerald-500 font-black text-2xl md:text-3xl mb-1">Zero</div>
-                                <div className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Security Risk</div>
+                                <div className="text-[10px] text-slate-500 uppercase font-bold tracking-widest mb-1">업무 부하 Zero</div>
+                                <div className="text-xs text-slate-400 break-keep leading-tight">생산 단계부터 관리하여 사후 분류 업무 최소화</div>
                             </div>
                         </div>
                     </div>

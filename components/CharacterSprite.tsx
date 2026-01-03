@@ -32,8 +32,8 @@ export const CharacterSprite: React.FC<CharacterSpriteProps> = ({ emotion, size 
     <div 
       className={`relative overflow-hidden bg-slate-800 shadow-xl ${sizeClasses[size]} ${className}`}
       style={{
-        // 파일명을 'character.jpg'로 변경해야 브라우저에서 안전하게 로드됩니다.
-        backgroundImage: "url('./character.jpg')",
+        // 사용자가 제공한 'unnamed (1).jpg' 파일을 캐릭터 스프라이트로 사용
+        backgroundImage: "url('./unnamed (1).jpg')",
         backgroundSize: '200% 200%',
         backgroundPosition: positions[emotion],
         borderColor: 'rgba(59, 130, 246, 0.3)',

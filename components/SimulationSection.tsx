@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SIMULATION_DATA } from '../constants';
 import { CharacterSprite } from './CharacterSprite';
-import { Search, FolderTree, Scale, ShieldCheck, Brain, Lightbulb, ArrowRight } from 'lucide-react';
+import { Search, FolderTree, Scale, ShieldCheck, Brain, Lightbulb, Building2, FileText, Calendar, Eye, Link2, FileType } from 'lucide-react';
 
 const iconMap: Record<string, React.ReactNode> = {
   search: <Search className="w-5 h-5" />,
@@ -116,6 +116,67 @@ export const SimulationSection: React.FC = () => {
                       "{activeCase.scenario}"
                     </p>
                   </div>
+                </div>
+
+                {/* Actual Case Banner (Structured Metadata) */}
+                <div className="bg-slate-800 p-5 rounded-2xl border-l-4 border-indigo-500">
+                     <div className="flex items-center gap-2 mb-4">
+                        <div className="p-1.5 bg-indigo-500/20 rounded-lg">
+                            <Building2 className="w-4 h-4 text-indigo-400" />
+                        </div>
+                        <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-wider">Actual Case (실제 도입 사례)</span>
+                     </div>
+                     
+                     {/* Record Card Style */}
+                     <div className="bg-slate-900/60 rounded-xl p-4 border border-slate-700/50">
+                        <div className="flex items-start gap-3 mb-4 border-b border-slate-700/50 pb-3">
+                            <FileText className="w-5 h-5 text-slate-400 mt-1 shrink-0" />
+                            <div>
+                                <div className="text-[10px] text-slate-500 mb-0.5">문서 제목</div>
+                                <div className="text-sm md:text-base font-bold text-white leading-tight">{activeCase.realWorldExample.title}</div>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
+                            <div className="space-y-3">
+                                <div className="flex items-start gap-2">
+                                    <FileType className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
+                                    <div>
+                                        <div className="text-[10px] text-slate-500">단위과제</div>
+                                        <div className="text-slate-300 font-medium">{activeCase.realWorldExample.unitTask}</div>
+                                    </div>
+                                </div>
+                                <div className="flex items-start gap-2">
+                                    <Calendar className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
+                                    <div>
+                                        <div className="text-[10px] text-slate-500">보존기간</div>
+                                        <div className="text-slate-300 font-medium">{activeCase.realWorldExample.retention}</div>
+                                    </div>
+                                </div>
+                                <div className="flex items-start gap-2">
+                                    <Eye className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
+                                    <div>
+                                        <div className="text-[10px] text-slate-500">공개여부</div>
+                                        <div className={`font-medium ${activeCase.realWorldExample.disclosure.includes('비공개') ? 'text-red-400' : 'text-emerald-400'}`}>
+                                            {activeCase.realWorldExample.disclosure}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="space-y-3 pt-3 md:pt-0 md:border-l border-slate-700/50 md:pl-4">
+                                <div>
+                                    <div className="text-[10px] text-slate-500 mb-1">내용 요약</div>
+                                    <p className="text-slate-400 leading-snug">{activeCase.realWorldExample.summary}</p>
+                                </div>
+                                <div className="flex items-start gap-2 pt-1">
+                                    <Link2 className="w-3.5 h-3.5 text-slate-500 shrink-0 mt-0.5" />
+                                    <div>
+                                        <div className="text-[10px] text-slate-500">관련 기록물</div>
+                                        <div className="text-slate-400 italic text-[11px]">{activeCase.realWorldExample.relation}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
                 </div>
 
                 {/* Solution Logic Grid */}
