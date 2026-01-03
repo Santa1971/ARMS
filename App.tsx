@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter } from 'react-router-dom';
 import { SimulationSection } from './components/SimulationSection';
 import { CharacterSprite } from './components/CharacterSprite';
-import { Zap, Shield, Search, Menu, X, Rocket, CheckCircle2, History } from 'lucide-react';
+import { Zap, Shield, Search, Menu, X, Rocket, CheckCircle2, History, FileImage, ShieldCheck } from 'lucide-react';
 
 const App: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -25,6 +25,7 @@ const App: React.FC = () => {
             <div className="hidden md:flex gap-10 text-sm font-bold text-slate-400">
               <a href="#about" className="hover:text-blue-400 transition-colors">솔루션 소개</a>
               <a href="#simulation" className="hover:text-blue-400 transition-colors">시뮬레이션</a>
+              <a href="#preservation" className="hover:text-blue-400 transition-colors">보존 매체 변환</a>
               <a href="#impact" className="hover:text-blue-400 transition-colors">도입효과</a>
             </div>
 
@@ -51,6 +52,7 @@ const App: React.FC = () => {
               <div className="md:hidden absolute top-16 w-full bg-slate-900/95 backdrop-blur-xl border-b border-slate-800 p-6 flex flex-col gap-6 text-center animate-fade-in-down shadow-2xl z-40">
                 <a href="#about" className="text-slate-300 font-bold text-lg py-2" onClick={() => setIsMobileMenuOpen(false)}>솔루션 소개</a>
                 <a href="#simulation" className="text-slate-300 font-bold text-lg py-2" onClick={() => setIsMobileMenuOpen(false)}>시뮬레이션</a>
+                <a href="#preservation" className="text-slate-300 font-bold text-lg py-2" onClick={() => setIsMobileMenuOpen(false)}>보존 매체 변환</a>
                 <a href="#impact" className="text-slate-300 font-bold text-lg py-2" onClick={() => setIsMobileMenuOpen(false)}>도입효과</a>
               </div>
           )}
@@ -177,6 +179,91 @@ const App: React.FC = () => {
 
         {/* Simulation Section Component */}
         <SimulationSection />
+
+        {/* Microfilm Preservation Tool Section */}
+        <section id="preservation" className="py-20 md:py-24 bg-slate-900 relative border-t border-slate-800">
+          <div className="max-w-7xl mx-auto px-4 md:px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold tracking-widest uppercase">
+                    New Feature
+                 </div>
+                 <h2 className="text-3xl md:text-4xl font-black text-white leading-tight break-keep">
+                    공공기록물 표준을 준수하는<br/>
+                    <span className="text-emerald-500">진본성 확보(Integrity)</span> 및 <br/>
+                    보존 매체 변환 자동화
+                 </h2>
+                 <p className="text-slate-400 text-lg leading-relaxed break-keep">
+                    공공기록물 관리에 관한 법률에 의거, 중요 기록물의 영구 보존을 위해서는 
+                    <strong className="text-white"> 진본성(Authenticity)과 무결성(Integrity)</strong> 확보가 선행되어야 합니다.
+                    ARMS는 대량의 전자화 문서를 국가기록원 표준 규격으로 자동 변환하고, 
+                    <strong className="text-white"> 메타데이터 각인(Watermarking)</strong>과 <strong className="text-white">해시(Hash) 검증</strong>을 원스톱으로 처리하여
+                    실무자의 업무 부담을 획기적으로 줄여줍니다.
+                 </p>
+                 <ul className="space-y-4 pt-4">
+                    <li className="flex items-start gap-3">
+                       <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
+                       <div>
+                          <div className="font-bold text-white">메타데이터 자동 스탬핑</div>
+                          <div className="text-sm text-slate-400">파일명, 날짜, 쪽수 정보를 이미지 여백에 자동으로 기입하여 마이크로필름 수록 요건 충족</div>
+                       </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                       <ShieldCheck className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
+                       <div>
+                          <div className="font-bold text-white">무결성 검증 (Anti-Tampering)</div>
+                          <div className="text-sm text-slate-400">국정원 검증필 암호화 모듈(SHA-256)을 통해 원본 대조 및 위변조 여부 즉시 판별</div>
+                       </div>
+                    </li>
+                 </ul>
+                 <div className="pt-6">
+                    <a href="/image-master.html" className="inline-flex items-center gap-3 px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-black text-lg shadow-xl shadow-emerald-600/20 transition-all transform hover:-translate-y-1">
+                       <FileImage className="w-6 h-6" />
+                       이미지 마스터(Image Master) 실행
+                    </a>
+                    <p className="mt-3 text-xs text-slate-500 font-medium">
+                       * 별도의 설치 없이 웹 브라우저에서 즉시 대량의 이미지 전처리 및 검증이 가능합니다.
+                    </p>
+                 </div>
+              </div>
+              <div className="relative">
+                 <div className="absolute inset-0 bg-emerald-500/20 blur-3xl rounded-full opacity-30 animate-pulse"></div>
+                 <div className="relative bg-slate-950 border border-slate-800 rounded-3xl p-6 shadow-2xl">
+                    <div className="flex items-center justify-between mb-6 border-b border-slate-800 pb-4">
+                       <div className="flex items-center gap-3">
+                          <CharacterSprite emotion="success" size="sm" className="border-emerald-500/50" />
+                          <div>
+                             <div className="text-sm font-bold text-white">전처리 시뮬레이션</div>
+                             <div className="text-xs text-slate-500">Processing...</div>
+                          </div>
+                       </div>
+                       <div className="px-3 py-1 bg-emerald-500/10 rounded-full text-emerald-400 text-xs font-bold">Active</div>
+                    </div>
+                    {/* Mock Interface */}
+                    <div className="space-y-3">
+                       <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
+                          <div className="h-full bg-emerald-500 w-[75%]"></div>
+                       </div>
+                       <div className="flex justify-between text-xs text-slate-400 font-mono">
+                          <span>Processing: IMG_2024_0042.jpg</span>
+                          <span>75%</span>
+                       </div>
+                       <div className="grid grid-cols-2 gap-3 mt-4">
+                          <div className="bg-slate-900 p-3 rounded-xl border border-slate-800 text-center">
+                             <div className="text-2xl font-black text-white">1,420</div>
+                             <div className="text-[10px] text-slate-500 uppercase">Files Processed</div>
+                          </div>
+                          <div className="bg-slate-900 p-3 rounded-xl border border-slate-800 text-center">
+                             <div className="text-2xl font-black text-emerald-500">0</div>
+                             <div className="text-[10px] text-slate-500 uppercase">Errors Found</div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Impact / Statistics Section */}
         <section id="impact" className="py-20 md:py-32 bg-slate-950 relative">

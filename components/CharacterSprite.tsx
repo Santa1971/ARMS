@@ -32,8 +32,7 @@ export const CharacterSprite: React.FC<CharacterSpriteProps> = ({ emotion, size 
     <div 
       className={`relative overflow-hidden bg-slate-800 shadow-xl ${sizeClasses[size]} ${className}`}
       style={{
-        // 파일명을 안전한 'character.jpg'로 변경했습니다. 
-        // 기존 'unnamed (1).jpg' 파일의 이름을 'character.jpg'로 변경하여 index.html과 같은 위치에 두세요.
+        // 파일명을 'character.jpg'로 변경해야 브라우저에서 안전하게 로드됩니다.
         backgroundImage: "url('./character.jpg')",
         backgroundSize: '200% 200%',
         backgroundPosition: positions[emotion],
