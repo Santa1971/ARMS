@@ -394,24 +394,24 @@ export const ImageMaster: React.FC = () => {
       {loading && (
         <div className="fixed inset-0 z-[100] bg-black/70 flex flex-col items-center justify-center backdrop-blur-sm text-white">
            <div className="w-10 h-10 border-4 border-white/20 border-t-white rounded-full animate-spin mb-4"></div>
-           <div className="font-medium">Processing...</div>
+           <div className="font-medium">처리 중 (Processing)...</div>
         </div>
       )}
 
       {/* Header */}
       <header 
-        className="h-16 border-b flex items-center justify-between px-4 md:px-6 shrink-0"
+        className="h-14 md:h-16 border-b flex items-center justify-between px-3 md:px-6 shrink-0"
         style={{ backgroundColor: 'var(--panel)', borderColor: 'var(--border)' }}
       >
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 md:gap-4">
           <Link to="/" className="p-2 rounded-lg transition-colors hover:bg-black/10">
             <ArrowLeft className="w-5 h-5" style={{ color: 'var(--text)' }} />
           </Link>
           <div>
-            <h1 className="text-lg font-black flex items-center gap-2">
-               ARMS Image Master <span className="text-[10px] px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(var(--primary), 0.2)', color: 'var(--primary)' }}>v13.6</span>
+            <h1 className="text-base md:text-lg font-black flex items-center gap-2">
+               ARMS Image Master <span className="hidden md:inline-flex text-[10px] px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(var(--primary), 0.2)', color: 'var(--primary)' }}>v13.6</span>
             </h1>
-            <p className="text-[10px] font-medium" style={{ color: 'var(--text-sub)' }}>기록물 진본성 확보 & 마이크로필름 최적화</p>
+            <p className="hidden md:block text-[10px] font-medium" style={{ color: 'var(--text-sub)' }}>기록물 진본성 확보 & 마이크로필름 최적화</p>
           </div>
         </div>
         <div className="flex items-center gap-3">
@@ -503,8 +503,8 @@ export const ImageMaster: React.FC = () => {
 
         {/* Center Panel: Preview */}
         <div className={`
-           flex-1 flex flex-col items-center justify-center relative p-4
-           ${mobileView === 'preview' ? 'block' : 'hidden md:flex'}
+           flex-1 flex-col items-center justify-center relative p-2 md:p-4
+           ${mobileView === 'preview' ? 'flex' : 'hidden md:flex'}
         `} style={{ backgroundColor: 'var(--bg)' }}>
            <div className="w-full h-full border rounded-xl overflow-hidden shadow-2xl relative flex items-center justify-center" style={{ backgroundColor: '#fff', borderColor: 'var(--border)' }}>
                <canvas ref={canvasRef} className="max-w-full max-h-full object-contain" />
@@ -557,7 +557,7 @@ export const ImageMaster: React.FC = () => {
                  <>
                    <div className="p-4 rounded-xl border" style={{ backgroundColor: 'rgba(var(--primary), 0.05)', borderColor: 'rgba(var(--primary), 0.1)' }}>
                       <h3 className="text-xs font-black uppercase tracking-widest mb-2 flex items-center gap-2" style={{ color: 'var(--primary)' }}>
-                         <FileCheck className="w-4 h-4" /> Preservation Ready
+                         <FileCheck className="w-4 h-4" /> 보존 준비 완료 (Preservation Ready)
                       </h3>
                       <p className="text-xs leading-relaxed" style={{ color: 'var(--text-sub)' }}>
                          마이크로필름 수록을 위해 메타데이터(파일명, 날짜)를 이미지 여백에 스탬핑합니다.
@@ -667,7 +667,7 @@ export const ImageMaster: React.FC = () => {
                          {/* Text Controls */}
                          {['L', 'C', 'R'].map((pos) => {
                              const key = `txt${pos}` as keyof typeof config;
-                             const label = pos === 'L' ? 'Left' : pos === 'C' ? 'Center' : 'Right';
+                             const label = pos === 'L' ? '왼쪽' : pos === 'C' ? '중앙' : '오른쪽';
                              const setting = config[key] as TextConfig;
                              
                              return (
@@ -726,7 +726,7 @@ export const ImageMaster: React.FC = () => {
                  <>
                    <div className="p-4 rounded-xl border mb-6" style={{ backgroundColor: 'rgba(239, 68, 68, 0.05)', borderColor: 'rgba(239, 68, 68, 0.1)' }}>
                       <h3 className="text-red-400 text-xs font-black uppercase tracking-widest mb-2 flex items-center gap-2">
-                         <AlertCircle className="w-4 h-4" /> Integrity Check
+                         <AlertCircle className="w-4 h-4" /> 무결성 검증 (Integrity Check)
                       </h3>
                       <p className="text-xs leading-relaxed" style={{ color: 'var(--text-sub)' }}>
                          SHA-256 해시값을 비교하여 원본 데이터의 위변조 여부를 검증합니다.

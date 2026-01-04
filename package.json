@@ -1,5 +1,5 @@
 {
-  "name": "arms:-intelligent-archives-solution",
+  "name": "arms(완성)",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,7 +12,8 @@
     "lucide-react": "^0.562.0",
     "react-dom": "^19.2.3",
     "react-router-dom": "^7.11.0",
-    "react": "^19.2.3"
+    "react": "^19.2.3",
+    "@google/genai": "^1.34.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
